@@ -248,6 +248,12 @@ fun Context.getSortedDirectories(source: ArrayList<Directory>): ArrayList<Direct
             else -> (o1.sortValue.toLongOrNull() ?: 0).compareTo(o2.sortValue.toLongOrNull() ?: 0)
         }
 
+        if (result == 0) {
+            // stable tie-breaker: folders with equal sort values keep a deterministic
+            // order across reloads (path is unique), preventing random reshuffling
+            result = o1.path.compareTo(o2.path)
+        }
+
         if (sorting and SORT_DESCENDING != 0) {
             result *= -1
         }

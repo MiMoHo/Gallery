@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Fixed
+- Fixed folders and media with identical dates/sizes randomly changing order (and the resulting lag) by adding a stable sort tie-breaker ([#198])
 
 ## [1.13.1] - 2026-02-14
 ### Changed
@@ -267,6 +269,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#62]: https://github.com/FossifyOrg/Gallery/issues/62
 [#128]: https://github.com/FossifyOrg/Gallery/issues/128
 [#166]: https://github.com/FossifyOrg/Gallery/issues/166
+[#198]: https://github.com/FossifyOrg/Gallery/issues/198
 [#199]: https://github.com/FossifyOrg/Gallery/issues/199
 [#237]: https://github.com/FossifyOrg/Gallery/issues/237
 [#241]: https://github.com/FossifyOrg/Gallery/issues/241

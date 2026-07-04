@@ -792,6 +792,12 @@ class MediaFetcher(val context: Context) {
                 else -> o1.taken.compareTo(o2.taken)
             }
 
+            if (result == 0) {
+                // stable tie-breaker: items with equal sort values keep a deterministic
+                // order across reloads (full path is unique), preventing random reshuffling
+                result = o1.path.compareTo(o2.path)
+            }
+
             if (sorting and SORT_DESCENDING != 0) {
                 result *= -1
             }
