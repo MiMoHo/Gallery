@@ -9,6 +9,7 @@ import org.fossify.commons.helpers.BaseConfig
 import org.fossify.commons.helpers.PROTECTION_PATTERN
 import org.fossify.commons.helpers.SORT_BY_DATE_MODIFIED
 import org.fossify.commons.helpers.SORT_DESCENDING
+import org.fossify.commons.helpers.SORT_FOLDER_PREFIX
 import org.fossify.commons.helpers.VIEW_TYPE_GRID
 import org.fossify.gallery.R
 import org.fossify.gallery.models.AlbumCover
@@ -61,6 +62,15 @@ class Config(context: Context) : BaseConfig(context) {
     }
 
     fun hasCustomViewType(path: String) = prefs.contains(VIEW_TYPE_PREFIX + path.lowercase(Locale.getDefault()))
+
+    // per-folder grouping/view type/sorting are stored under dynamic prefixed keys, expose them for settings export
+    fun getFolderSpecificSettings() = prefs.all.filterKeys {
+        it.startsWith(GROUP_FOLDER_PREFIX) || it.startsWith(VIEW_TYPE_PREFIX) || it.startsWith(SORT_FOLDER_PREFIX)
+    }
+
+    fun saveFolderSpecificSetting(key: String, value: Int) {
+        prefs.edit().putInt(key, value).apply()
+    }
 
     var wasHideFolderTooltipShown: Boolean
         get() = prefs.getBoolean(HIDE_FOLDER_TOOLTIP_SHOWN, false)

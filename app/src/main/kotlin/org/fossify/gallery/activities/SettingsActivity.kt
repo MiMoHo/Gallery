@@ -988,6 +988,12 @@ class SettingsActivity : SimpleActivity() {
                 put(THUMBNAIL_SPACING, config.thumbnailSpacing)
                 put(FILE_ROUNDED_CORNERS, config.fileRoundedCorners)
                 put(SEARCH_ALL_FILES_BY_DEFAULT, config.searchAllFilesByDefault)
+
+                config.getFolderSpecificSettings().forEach { (key, value) ->
+                    if (value != null) {
+                        put(key, value)
+                    }
+                }
             }
 
             exportSettings(configItems)
@@ -1144,6 +1150,12 @@ class SettingsActivity : SimpleActivity() {
                     }
 
                     config.albumCovers = Gson().toJson(existingCovers)
+                }
+
+                else -> {
+                    if (key.startsWith(GROUP_FOLDER_PREFIX) || key.startsWith(VIEW_TYPE_PREFIX) || key.startsWith(SORT_FOLDER_PREFIX)) {
+                        config.saveFolderSpecificSetting(key, value.toString().toInt())
+                    }
                 }
             }
         }
