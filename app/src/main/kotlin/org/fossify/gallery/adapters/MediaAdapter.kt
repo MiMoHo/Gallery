@@ -617,7 +617,8 @@ class MediaAdapter(
         }
     }
 
-    private fun getSelectedItems() = selectedKeys.mapNotNull { getItemWithKey(it) } as ArrayList<Medium>
+    private fun getSelectedItems() = media.filterIsInstance<Medium>()
+        .filter { selectedKeys.contains(it.path.hashCode()) } as ArrayList<Medium>
 
     private fun getSelectedPaths() = getSelectedItems().map { it.path } as ArrayList<String>
 

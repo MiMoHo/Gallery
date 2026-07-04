@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Fixed
+- Fixed selection order not following display order when sharing or batch-renaming multiple items ([#295])
 
 ## [1.13.1] - 2026-02-14
 ### Changed
@@ -271,6 +273,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#237]: https://github.com/FossifyOrg/Gallery/issues/237
 [#241]: https://github.com/FossifyOrg/Gallery/issues/241
 [#275]: https://github.com/FossifyOrg/Gallery/issues/275
+[#295]: https://github.com/FossifyOrg/Gallery/issues/295
 [#325]: https://github.com/FossifyOrg/Gallery/issues/325
 [#362]: https://github.com/FossifyOrg/Gallery/issues/362
 [#363]: https://github.com/FossifyOrg/Gallery/issues/363
