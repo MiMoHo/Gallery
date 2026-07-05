@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Fixed
+- Fixed missing screen rotation by aspect ratio during slideshow when the animation is set to None ([#598])
 
 ## [1.13.1] - 2026-02-14
 ### Changed
@@ -287,6 +289,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#565]: https://github.com/FossifyOrg/Gallery/issues/565
 [#567]: https://github.com/FossifyOrg/Gallery/issues/567
 [#568]: https://github.com/FossifyOrg/Gallery/issues/568
+[#598]: https://github.com/FossifyOrg/Gallery/issues/598
 [#621]: https://github.com/FossifyOrg/Gallery/issues/621
 [#622]: https://github.com/FossifyOrg/Gallery/issues/622
 [#630]: https://github.com/FossifyOrg/Gallery/issues/630

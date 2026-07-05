@@ -635,6 +635,7 @@ class ViewPagerActivity : BaseViewerActivity(), ViewPager.OnPageChangeListener, 
             slideshowEnded(forward)
         } else {
             binding.viewPager.setCurrentItem(newPosition, false)
+            checkOrientation()
         }
     }
 
