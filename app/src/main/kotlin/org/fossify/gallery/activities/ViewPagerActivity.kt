@@ -1528,6 +1528,7 @@ class ViewPagerActivity : BaseViewerActivity(), ViewPager.OnPageChangeListener, 
             updateActionbarTitle()
             refreshMenuItems()
             scheduleSwipe()
+            checkOrientation()
         }
     }
 

@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Fixed
+- Fixed screen auto-rotation (rotate by aspect ratio) using the previous image's orientation during slideshows ([#417])
 
 ## [1.13.1] - 2026-02-14
 ### Changed
@@ -278,6 +280,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#375]: https://github.com/FossifyOrg/Gallery/issues/375
 [#379]: https://github.com/FossifyOrg/Gallery/issues/379
 [#411]: https://github.com/FossifyOrg/Gallery/issues/411
+[#417]: https://github.com/FossifyOrg/Gallery/issues/417
 [#418]: https://github.com/FossifyOrg/Gallery/issues/418
 [#447]: https://github.com/FossifyOrg/Gallery/issues/447
 [#475]: https://github.com/FossifyOrg/Gallery/issues/475
