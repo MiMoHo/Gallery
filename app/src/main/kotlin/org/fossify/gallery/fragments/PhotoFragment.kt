@@ -491,7 +491,9 @@ class PhotoFragment : ViewPagerFragment() {
         mHasInitialZoom = false
         if (context == null) return
         val path = getFilePathToShow()
-        if (path.isWebP()) {
+        // WebPDrawable (used for animated WebP) cannot apply an in-viewer rotation,
+        // so once the user rotates, fall back to Glide which honors mCurrentRotationDegrees.
+        if (path.isWebP() && mCurrentRotationDegrees == 0) {
             val drawable = WebPDrawable.fromFile(path)
             if (drawable.intrinsicWidth == 0) {
                 loadWithGlide(path, addZoomableView)
