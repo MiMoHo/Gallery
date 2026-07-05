@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Fixed
+- Fixed images in excluded folders closing shortly after being opened from a file browser while "Show all folders content" is enabled ([#852])
 
 ## [1.13.1] - 2026-02-14
 ### Changed
@@ -307,6 +309,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#800]: https://github.com/FossifyOrg/Gallery/issues/800
 [#830]: https://github.com/FossifyOrg/Gallery/issues/830
 [#831]: https://github.com/FossifyOrg/Gallery/issues/831
+[#852]: https://github.com/FossifyOrg/Gallery/issues/852
 [#876]: https://github.com/FossifyOrg/Gallery/issues/876
 [#917]: https://github.com/FossifyOrg/Gallery/issues/917
 [#925]: https://github.com/FossifyOrg/Gallery/issues/925

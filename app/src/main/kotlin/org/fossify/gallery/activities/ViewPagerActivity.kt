@@ -108,6 +108,7 @@ import org.fossify.gallery.extensions.getShortcutImage
 import org.fossify.gallery.extensions.handleMediaManagementPrompt
 import org.fossify.gallery.extensions.hideSystemUI
 import org.fossify.gallery.extensions.isDownloadsFolder
+import org.fossify.gallery.extensions.isThisOrParentExcluded
 import org.fossify.gallery.extensions.launchResizeImageDialog
 import org.fossify.gallery.extensions.launchSettings
 import org.fossify.gallery.extensions.mediaDB
@@ -413,6 +414,14 @@ class ViewPagerActivity : BaseViewerActivity(), ViewPager.OnPageChangeListener, 
         outState.putString(SAVED_PATH, getCurrentPath())
     }
 
+    // make sure "Open Recycle Bin" works well with "Show all folders content"
+    // and that opening a file from an excluded folder (e.g. via a file browser) does not
+    // get filtered out by the "Show all folders content" reload, which would close it
+    private fun shouldShowAllFolders(path: String): Boolean {
+        return config.showAll && path.isNotEmpty() && !path.startsWith(recycleBinPath) &&
+            !path.getParentPath().isThisOrParentExcluded(config.excludedFolders)
+    }
+
     private fun initViewPager(savedPath: String) {
         val uri = intent.data
         if (uri != null) {
@@ -420,9 +429,7 @@ class ViewPagerActivity : BaseViewerActivity(), ViewPager.OnPageChangeListener, 
         } else {
             try {
                 mPath = savedPath.ifEmpty { intent.getStringExtra(PATH).orEmpty() }
-
-                // make sure "Open Recycle Bin" works well with "Show all folders content"
-                mShowAll = config.showAll && (mPath.isNotEmpty() && !mPath.startsWith(recycleBinPath))
+                mShowAll = shouldShowAllFolders(mPath)
             } catch (e: Exception) {
                 showErrorToast(e)
                 finish()
