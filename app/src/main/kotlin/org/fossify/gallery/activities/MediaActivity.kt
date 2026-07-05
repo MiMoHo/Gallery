@@ -792,12 +792,17 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
         val layoutManager = binding.mediaGrid.layoutManager as MyGridLayoutManager
         if (config.scrollHorizontally) {
             layoutManager.orientation = RecyclerView.HORIZONTAL
+            // in horizontal mode item size follows the grid height; disable the
+            // measurement cache so items re-measure when the keyboard/insets change
+            // the height back (otherwise they stay squeezed until a manual swipe). #506
+            layoutManager.isMeasurementCacheEnabled = false
             binding.mediaRefreshLayout.layoutParams = RelativeLayout.LayoutParams(
                 ViewGroup.LayoutParams.WRAP_CONTENT,
                 ViewGroup.LayoutParams.MATCH_PARENT
             )
         } else {
             layoutManager.orientation = RecyclerView.VERTICAL
+            layoutManager.isMeasurementCacheEnabled = true
             binding.mediaRefreshLayout.layoutParams = RelativeLayout.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT

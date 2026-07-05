@@ -849,6 +849,10 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         val layoutManager = binding.directoriesGrid.layoutManager as MyGridLayoutManager
         if (config.scrollHorizontally) {
             layoutManager.orientation = RecyclerView.HORIZONTAL
+            // in horizontal mode item size follows the grid height; disable the
+            // measurement cache so items re-measure when the keyboard/insets change
+            // the height back (otherwise they stay squeezed until a manual swipe). #506
+            layoutManager.isMeasurementCacheEnabled = false
             binding.directoriesRefreshLayout.layoutParams =
                 RelativeLayout.LayoutParams(
                     ViewGroup.LayoutParams.WRAP_CONTENT,
@@ -856,6 +860,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
                 )
         } else {
             layoutManager.orientation = RecyclerView.VERTICAL
+            layoutManager.isMeasurementCacheEnabled = true
             binding.directoriesRefreshLayout.layoutParams =
                 RelativeLayout.LayoutParams(
                     ViewGroup.LayoutParams.MATCH_PARENT,

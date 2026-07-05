@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Fixed
+- Fixed thumbnails staying shrunk after hiding the keyboard when horizontal scrolling is enabled ([#506])
 
 ## [1.13.1] - 2026-02-14
 ### Changed
@@ -281,6 +283,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#418]: https://github.com/FossifyOrg/Gallery/issues/418
 [#447]: https://github.com/FossifyOrg/Gallery/issues/447
 [#475]: https://github.com/FossifyOrg/Gallery/issues/475
+[#506]: https://github.com/FossifyOrg/Gallery/issues/506
 [#525]: https://github.com/FossifyOrg/Gallery/issues/525
 [#529]: https://github.com/FossifyOrg/Gallery/issues/529
 [#564]: https://github.com/FossifyOrg/Gallery/issues/564
